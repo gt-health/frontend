@@ -1,13 +1,12 @@
 import { connect } from 'react-redux';
-import CaseField from '../components/CaseField.jsx';
+import CaseSection from '../components/CaseSection.jsx';
 // import { updateCase } from '../actions/update_case.js';
 
 function mapStateToProps(state, ownProps) {
-  console.log('')
   return {
     // user: state.user,
     // router: state.router
-    caseField: state.case.fields[ownProps.identifier]
+    caseSection: state.case.raw[ownProps.section]
   };
 }
 
@@ -18,6 +17,6 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-const caseFieldContainer = connect(mapStateToProps, mapDispatchToProps)(CaseField);
+const caseSectionContainer = connect(mapStateToProps, mapDispatchToProps)(CaseSection);
 
-export default caseFieldContainer;
+export default caseSectionContainer;
