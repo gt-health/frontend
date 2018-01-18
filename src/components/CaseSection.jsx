@@ -22,20 +22,28 @@ export default class Case extends React.Component {
 
   componentDidUpdate(prevProps,prevState) {}
 
+  onSubmit(data) {
+    this.props.onSave(this.props.caseId, this.props.theCase);
+  }
+
+  onChange(data) {
+    this.props.onChange(data.formData, this.props.section);
+  }
+
   render() {
     console.log('*** rendering case section -- '+this.props.section+' -- component ***');
 
       return (
-        <div>
-        <h1>{this.props.section}</h1>
           <Form
+            edit="false"
             schema={schema.properties[this.props.section]}
             formData={this.props.caseSection}
-            onChange={log("changed")}
-            onSubmit={log("submitted")}
+            onChange={(data) => this.onChange(data)}
+            onSubmit={(data) => this.onSubmit(data)}
             onError={log("errors")}
-          />
-        </div>
+          >
+            <button ref={(btn) => {this.submitButton=btn;}} className="hidden" />
+          </Form>
       );
   }
 }
