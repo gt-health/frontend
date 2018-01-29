@@ -3,7 +3,7 @@ import axios from 'axios';
 export function getCase(caseId) {
   return dispatch => {
     dispatch(getCaseRequestedAction());
-    return axios.get(process.env.REACT_APP_API_URL+'/cases/'+caseId)
+    return axios.get(process.env.REACT_APP_API_URL_CASE+'?id='+caseId)
       .then((response) => {
         var theCase = response.data;
         dispatch(getCaseFulfilledAction(theCase));

@@ -1,26 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import CaseSection from '../containers/case_section_container.js';
-import DummyForm from './DummyForm';
 import { Route, Switch, Link } from 'react-router-dom';
 import Form from "react-jsonschema-form";
-
 import schema from '../helpers/schema.json';
-
-// console.log('myData: ',myData);
-
-// const schema = {
-//   title: "Todo",
-//   type: "object",
-//   required: ["title"],
-//   properties: {
-//     title: {type: "string", title: "Title", default: "A new task"},
-//     done: {type: "boolean", title: "Done?", default: false}
-//   }
-// };
-
-const log = (type) => console.log.bind(console, type);
-
 
 export default class Case extends React.Component {
 
@@ -41,17 +24,18 @@ export default class Case extends React.Component {
   componentDidUpdate(prevProps,prevState) {}
 
   submitForm() {
-    // console.log('refs: ',this.refs);
-    // console.log('the form: ',this.form);
   	this.form.getWrappedInstance().submitButton.click();
-    // ReactDOM.findDOMNode(this.refs.submitButton).click()
   }
 
   render() {
-    console.log('*** rendering case component ***');
-    if (!this.props.case.raw) {
+    console.log('*** rendering case edit component ***');
+    if (this.props.case.inProgress) {
       return (
-        <div>Loading</div>
+        <div className="loading-wrapper">
+          <div className="loading-message">
+            <span className="loading-message-text">Loading ECR</span><span className="loading-message-icon"><i className="fa fa-circle-o-notch fa-spin"></i></span>
+          </div>
+        </div>
       )
     } else {
       return (
@@ -85,14 +69,24 @@ export default class Case extends React.Component {
                   <span className="case-section-link-icon"><i className="fa fa-user" aria-hidden="true"></i></span>
                 </Link>
               </li>
-              <li className="case-siderbar-save">
+              <li className="case-siderbar-button">
+                <Link to={`/cases/${this.props.match.params.caseId}/view`}>
+                  <button
+                    type="button"
+                    className="button is-primary is-medium is-fullwidth"
+                  >
+                    View Case
+                  </button>
+                </Link>
+              </li>
+              <li className="case-siderbar-button">
                 <button
                   type="button"
                   className="button is-primary is-medium is-disabled is-fullwidth"
                   disabled={!this.props.case.dirty}
                   onClick={this.submitForm}
                 >
-                  Update Case
+                  {this.props.case.updateInProgress ? (<div><span>Updating Case</span><span className="updating-ecr-icon"><i className="fa fa-circle-o-notch fa-spin"></i></span></div>) : 'Update Case'}
                 </button>
               </li>
             </ul>

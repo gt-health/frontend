@@ -3,10 +3,10 @@
 	"title": "ECR",
 	"description": "The definition of an ECR object as seen from the transport level",
 	"id": "https://git2.icl.gtri.org/projects/CDCSTI/repos/json-schema/ECR.json#",
-	"type": ["object", "null"],
+	"type": "object",
 	"properties": {
 		"Sending Application": {
-			"type": ["string", "null"]
+			"type": "string"
 		},
 
 		"Provider": {
@@ -264,7 +264,7 @@
 							"System": {
 								"type": "string"
 							},
-							"Diplay": {
+							"Display": {
 								"type": "string"
 							}
 						}

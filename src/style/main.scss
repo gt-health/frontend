@@ -66,6 +66,12 @@ html {
   }
 }
 
+.case-view {
+  button[type="submit"] {
+    display: none;
+  }
+}
+
 .case {
   display: flex;
   .sidebar {
@@ -107,9 +113,15 @@ html {
         }
       }
     }
-    .case-siderbar-save {
+    .case-siderbar-button {
       padding: 0 10px;
       margin-top: 10px;
+      .updating-ecr-icon {
+        padding-left: 8px;
+      }
+      a {
+        padding: 0px;
+      }
     }
   }
   .main {
@@ -142,6 +154,26 @@ html {
         color: #777;
         font-weight: 500;
       }
+    }
+  }
+}
+
+.loading-wrapper {
+  position: relative;
+  height: 100vh;
+  .loading-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    .loading-message-text {
+      font-size: 20px;
+      color: #777;
+      margin-right: 8px;
+    }
+    .loading-message-icon {
+      font-size: 20px;
+      color: #777;
     }
   }
 }
@@ -228,3 +260,9 @@ html {
     opacity: 0.5;
   }
 }
+
+// .display-tag {
+//   width: 40%;
+//   float: left;
+//   clear: left;
+// }

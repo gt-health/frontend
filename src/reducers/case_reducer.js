@@ -1,6 +1,6 @@
 import { identifiers } from '../helpers/identifiers.js';
 
-export function caseReducer(state = { fields: {} }, action) {
+export function caseReducer(state = { inProgress: true }, action) {
   switch(action.type) {
     case 'GET_CASE_REQUESTED': {
       return {
@@ -50,7 +50,7 @@ export function caseReducer(state = { fields: {} }, action) {
     case 'SAVE_CASE_REQUESTED': {
       return {
         ...state,
-        inProgress: true,
+        updateInProgress: true,
         error: '',
         success: ''
       }
@@ -58,7 +58,7 @@ export function caseReducer(state = { fields: {} }, action) {
     case 'SAVE_CASE_FULFILLED': {
       return {
         ...state,
-        inProgress: false,
+        updateInProgress: false,
         error: '',
         success: 'Case saved.',
         dirty: false
@@ -67,7 +67,7 @@ export function caseReducer(state = { fields: {} }, action) {
     case "SAVE_CASE_REJECTED": {
       return {
         ...state,
-        inProgress: false,
+        updateInProgress: false,
         error: 'Problem saving case.',
         success: '',
         dirty: false

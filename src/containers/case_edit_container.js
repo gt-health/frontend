@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Case from '../components/Case.jsx';
+import CaseEdit from '../components/CaseEdit.jsx';
 import { getCase } from '../actions/get_case.js';
 
 function mapStateToProps(state) {
@@ -17,6 +17,6 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-const caseContainer = connect(mapStateToProps, mapDispatchToProps)(Case);
+const caseContainer = connect(mapStateToProps, mapDispatchToProps)(CaseEdit);
 
 export default caseContainer;

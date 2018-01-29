@@ -3,7 +3,7 @@ import axios from 'axios';
 export function onSave(caseId, theCase) {
   return dispatch => {
     dispatch(saveCaseRequestedAction());
-    return axios.post(process.env.REACT_APP_API_URL+'/cases/'+caseId, { theCase: theCase } )
+    return axios.put(process.env.REACT_APP_API_URL_CASE+'?id='+caseId, theCase )
       .then((response) => {
         // var theCase = response.data;
         console.log('case successfully saved.');

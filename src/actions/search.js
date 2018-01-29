@@ -1,14 +1,17 @@
 import axios from 'axios';
 import buildQuery from '../helpers/buildQuery';
+import history from '../helpers/history';
 
 export function search(params) {
   return dispatch => {
+    console.log('buildQuery: ',buildQuery(params));
     dispatch(searchRequestedAction());
-    return axios.get(process.env.REACT_APP_API_URL+'/cases?'+buildQuery(params))
+    return axios.get(process.env.REACT_APP_API_URL_CASE)
       .then((response) => {
-        console.log('success: ',response);
-        var cases = 'todo';
-        dispatch(searchFulfilledAction(cases));
+        console.log('response!!!: ',response);
+        let cases = response.data;//Change for Michaels API
+        dispatch(searchFulfilledAction(cases, params));
+        history.push('/cases');
       })
       .catch((error) => {
         console.log('error: ',error);
@@ -29,9 +32,9 @@ function searchRejectedAction() {
   }
 }
 
-function searchFulfilledAction(cases) {
+function searchFulfilledAction(cases, params) {
   return {
     type: 'SEARCH_FULFILLED',
-    cases
+    payload: { cases: cases, params: params }
   };
 }

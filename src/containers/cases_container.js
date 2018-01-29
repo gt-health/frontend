@@ -5,6 +5,8 @@ function mapStateToProps(state) {
   return {
     // user: state.user,
     // router: state.router
+    params: state.search.params,
+    cases: state.search.cases
   };
 }
 

@@ -30,6 +30,7 @@ export default class Search extends React.Component {
 
   handleSubmit() {
     const params = this.state;
+    console.log('search params: ',params);
     this.props.onSearch(params);
   }
 
