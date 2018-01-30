@@ -8,8 +8,7 @@ export function search(params) {
     dispatch(searchRequestedAction());
     return axios.get(process.env.REACT_APP_API_URL_CASE)
       .then((response) => {
-        console.log('response!!!: ',response);
-        let cases = response.data;//Change for Michaels API
+        let cases = response.data;
         dispatch(searchFulfilledAction(cases, params));
         history.push('/cases');
       })

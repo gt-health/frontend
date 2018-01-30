@@ -6,6 +6,7 @@ function mapStateToProps(state) {
   return {
     // user: state.user,
     // router: state.router
+    search: state.search
   };
 }
 

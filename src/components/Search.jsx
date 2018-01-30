@@ -150,7 +150,7 @@ export default class Search extends React.Component {
           </div>
           <div className="row">
             <div className="col-md-6 col-sm-12">
-              <button className="button is-primary is-medium" onClick={() => this.handleSubmit()}>Search</button>
+              <button className="button is-primary is-medium" onClick={() => this.handleSubmit()}>{this.props.search.error ? this.props.search.error : 'Search'}</button>
             </div>
           </div>
         </div>
