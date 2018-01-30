@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
+// import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
 import { Link } from 'react-router-dom';
 
 export default class Search extends React.Component {
@@ -79,7 +79,7 @@ export default class Search extends React.Component {
                 />
               </div>
             </div>
-            <div className="col-md-6 col-sm-12">
+            {/*<div className="col-md-6 col-sm-12">
               <div className="form-group">
                 <label for="inputDateRange">Date Range</label>
                 <div>
@@ -92,7 +92,7 @@ export default class Search extends React.Component {
                   />
                 </div>
               </div>
-            </div>
+            </div>*/}
           </div>
           <div className="row">
             <div className="col-md-6 col-sm-12">
@@ -141,7 +141,7 @@ export default class Search extends React.Component {
             <div className="col-md-6 col-sm-12">
               <div className="form-group">
                 <label for="inputDiagnosis">Diagnosis</label>
-                <select value={this.state.diagnosis} onChange={(e) => this.handleInputChange(e)} name="diagnosis" className="form-control">
+                <select value={this.state.diagnosis} onChange={(e) => this.handleInputChange(e)} name="diagnosis" className="form-control" id="inputDiagnosis">
                   <option>Select diagnosis</option>
                   <option value="toefungus">Toe Fungus</option>
                 </select>
