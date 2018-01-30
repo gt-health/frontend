@@ -35,7 +35,6 @@ export default class Search extends React.Component {
   }
 
   render() {
-    console.log('TEST_VAR: ',process.env.TEST_VAR);
     console.log('*** rendering search component ***');
     return (
       <div className="search">
