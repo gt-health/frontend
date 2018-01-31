@@ -102,7 +102,7 @@ export default class Case extends React.Component {
 
                 <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                   <ul className="nav navbar-nav navbar-right">
-                    <li><Link to="/search">Search</Link></li>
+                    <li><Link to="/">Search</Link></li>
                     <li><Link to="/cases">Cases</Link></li>
                     <li className="dropdown">
                       <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile <span className="caret"></span></a>

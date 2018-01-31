@@ -20,7 +20,7 @@ export default class StiApp extends Component {
       <section className="section">
         {/*<Route path="/" component={Navbar}/>*/}
         <Switch>
-          <Route path="/search" component={Search}/>
+          <Route exact path="/" component={Search}/>
           <Route path="/cases/:caseId/view" component={CaseView}/>
           {/*<Route path="/cases/:caseId/view" component={TestComp}/>*/}
           <Route path="/cases/:caseId/edit" component={CaseEdit}/>
