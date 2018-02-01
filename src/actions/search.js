@@ -6,7 +6,7 @@ export function search(params) {
   return dispatch => {
     console.log('buildQuery: ',buildQuery(params));
     dispatch(searchRequestedAction());
-    return axios.get(process.env.REACT_APP_API_URL_CASE)
+    return axios.get(process.env.REACT_APP_API_URL_CASE+'?'+buildQuery(params))
       .then((response) => {
         let cases = response.data;
         dispatch(searchFulfilledAction(cases, params));
