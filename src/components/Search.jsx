@@ -8,13 +8,6 @@ export default class Search extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      caseID: '',
-      dateStart: '',
-      dateEnd: '',
-      lastName: '',
-      firstName: '',
-      zipCode: '',
-      diagnosis: ''
     };
   }
 
@@ -73,8 +66,8 @@ export default class Search extends React.Component {
                   className="form-control"
                   type="text"
                   placeholder="Case ID"
-                  name="caseID"
-                  value={this.state.caseID}
+                  name="id"
+                  value={this.state.id}
                   onChange={(e) => this.handleInputChange(e)}
                 />
               </div>
