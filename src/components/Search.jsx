@@ -28,125 +28,133 @@ export default class Search extends React.Component {
   }
 
   render() {
+    var button;
+    if (this.props.search.error) {
+      button = this.props.search.error;
+    } else if (this.props.search.inProgress) {
+      button = 'In progress...';
+    } else {
+      button = 'Search';
+    }
     console.log('*** rendering search component ***');
     return (
       <div className="search">
-        <nav className="navbar navbar-default">
-          <div className="container-fluid">
-            <div className="navbar-header">
-              <a className="navbar-brand" href="#">
-                STI Client
-              </a>
-            </div>
-
-            <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul className="nav navbar-nav navbar-right">
-                <li><Link to="/cases">Cases</Link></li>
-                <li className="dropdown">
-                  <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile <span className="caret"></span></a>
-                  <ul className="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li role="separator" className="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                  </ul>
-                </li>
-              </ul>
+        <nav className="navbar is-transparent" id="topnav">
+          <div className="navbar-brand">
+            <a className="navbar-item" href="https://bulma.io">
+              STI CLIENT
+            </a>
+            <div className="navbar-burger burger" data-target="navbarExampleTransparentExample">
+              <span></span>
+              <span></span>
+              <span></span>
             </div>
           </div>
         </nav>
-        <div className="container">
-          <div className="row">
-            <div className="col-md-6 col-sm-12">
-              <div className="form-group">
-                <label for="inputCaseId">Case ID</label>
-                <input
-                  id="inputCaseId"
-                  className="form-control"
-                  type="text"
-                  placeholder="Case ID"
-                  name="id"
-                  value={this.state.id}
-                  onChange={(e) => this.handleInputChange(e)}
-                />
-              </div>
-            </div>
-            {/*<div className="col-md-6 col-sm-12">
-              <div className="form-group">
-                <label for="inputDateRange">Date Range</label>
-                <div>
-                  <DateRangePicker
-                    startDate={this.state.dateStart}
-                    endDate={this.state.dateEnd}
-                    onDatesChange={({ dateStart, dateEnd }) => this.setState({ dateStart, dateEnd })}
-                    focusedInput={this.state.focusedInput}
-                    onFocusChange={focusedInput => this.setState({ focusedInput })}
-                  />
+        <section className="section">
+          <div className="container">
+            <div className="columns">
+              <div className="column">
+                <div className="field">
+                  <label className="label">Case ID</label>
+                  <div className="control">
+                    <input
+                      id="inputCaseId"
+                      className="input"
+                      type="text"
+                      placeholder="Case ID"
+                      name="id"
+                      value={this.state.id}
+                      onChange={(e) => this.handleInputChange(e)}
+                    />
+                  </div>
                 </div>
               </div>
-            </div>*/}
-          </div>
-          <div className="row">
-            <div className="col-md-6 col-sm-12">
-              <div className="form-group">
-                <label for="inputLastName">Last name</label>
-                <input
-                  id="inputLastName"
-                  className="form-control"
-                  type="text"
-                  placeholder="Last name"
-                  name="lastName"
-                  value={this.state.lastName}
-                  onChange={(e) => this.handleInputChange(e)}/>
+              {/*<div className="col-md-6 col-sm-12">
+                <div className="form-group">
+                  <label for="inputDateRange">Date Range</label>
+                  <div>
+                    <DateRangePicker
+                      startDate={this.state.dateStart}
+                      endDate={this.state.dateEnd}
+                      onDatesChange={({ dateStart, dateEnd }) => this.setState({ dateStart, dateEnd })}
+                      focusedInput={this.state.focusedInput}
+                      onFocusChange={focusedInput => this.setState({ focusedInput })}
+                    />
+                  </div>
+                </div>
+              </div>*/}
+            </div>
+            <div className="columns">
+              <div className="column">
+                <div className="field">
+                  <label className="label">Last name</label>
+                  <div className="control">
+                    <input
+                      id="inputLastName"
+                      className="input"
+                      type="text"
+                      placeholder="Last name"
+                      name="lastName"
+                      value={this.state.lastName}
+                      onChange={(e) => this.handleInputChange(e)}/>
+                  </div>
+                </div>
+              </div>
+              <div className="column">
+                <div className="field">
+                  <label className="label">First name</label>
+                  <div className="control">
+                  <input
+                    id="inputFirstName"
+                    className="input"
+                    type="text"
+                    placeholder="First name"
+                    name="firstName"
+                    value={this.state.firstName}
+                    onChange={(e) => this.handleInputChange(e)}
+                    />
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="col-md-6 col-sm-12">
-              <div className="form-group">
-                <label for="inputFirstName">First name</label>
-                <input
-                  id="inputFirstName"
-                  className="form-control"
-                  type="text"
-                  placeholder="First name"
-                  name="firstName"
-                  value={this.state.firstName}
-                  onChange={(e) => this.handleInputChange(e)}
-                  />
+            <div className="columns">
+              <div className="column">
+                <div className="field">
+                  <label className="label">Zip Code</label>
+                  <div className="control">
+                    <input
+                      id="inputZipCode"
+                      className="input"
+                      type="text"
+                      placeholder="Zip Code"
+                      name="zipCode"
+                      value={this.state.zipCode}
+                      onChange={(e) => this.handleInputChange(e)}
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="column">
+                <div className="field">
+                  <label className="label">Diagnosis</label>
+                  <div class="select">
+                  <select value={this.state.diagnosis} onChange={(e) => this.handleInputChange(e)} name="diagnosis" id="inputDiagnosis">
+                    <option>Select diagnosis</option>
+                    <option value="toefungus">Toe Fungus</option>
+                  </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {this.props.search.error}
+            <div className="row">
+              <div className="col-md-6 col-sm-12">
+                <button className="button is-primary is-medium" onClick={() => this.handleSubmit()}>{button}</button>
               </div>
             </div>
           </div>
-          <div className="row">
-            <div className="col-md-6 col-sm-12">
-              <div className="form-group">
-                <label for="inputZipCode">Zip Code</label>
-                <input
-                  id="inputZipCode"
-                  className="form-control"
-                  type="text"
-                  placeholder="Zip Code"
-                  name="zipCode"
-                  value={this.state.zipCode}
-                  onChange={(e) => this.handleInputChange(e)}
-                />
-              </div>
-            </div>
-            <div className="col-md-6 col-sm-12">
-              <div className="form-group">
-                <label for="inputDiagnosis">Diagnosis</label>
-                <select value={this.state.diagnosis} onChange={(e) => this.handleInputChange(e)} name="diagnosis" className="form-control" id="inputDiagnosis">
-                  <option>Select diagnosis</option>
-                  <option value="toefungus">Toe Fungus</option>
-                </select>
-              </div>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-md-6 col-sm-12">
-              <button className="button is-primary is-medium" onClick={() => this.handleSubmit()}>{this.props.search.error ? this.props.search.error : 'Search'}</button>
-            </div>
-          </div>
-        </div>
+        </section>
       </div>
     );
   }

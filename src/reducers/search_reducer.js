@@ -21,8 +21,8 @@ export function searchReducer(state = {}, action) {
       return {
         ...state,
         inProgress: false,
-        error: 'Successfully retrieved cases.',
-        success: '',
+        error: '',
+        success: 'Successfully retrieved cases.',
         params: action.payload.params,
         cases: action.payload.cases
       };

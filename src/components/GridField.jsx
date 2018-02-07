@@ -29,11 +29,11 @@ class GridField extends ObjectField {
     // const log = (type) => console.log.bind(console, type);
     return (
       <fieldset>
-        {title ? <TitleField
+        {/*{title ? <TitleField
             id={`${idSchema.$id}__title`}
             title={title}
             required={required}
-            formContext={formContext}/> : null}
+            formContext={formContext}/> : null}*/}
         {schema.description ?
           <DescriptionField
             id={`${idSchema.$id}__description`}
@@ -42,10 +42,11 @@ class GridField extends ObjectField {
         {
           order.map((row, index) => {
             return (
-              <div className="row" key={index}>
+              <div className="columns" key={index}>
                 {
                   Object.keys(row).map((name, index) => (
-                    <Col {...row[name]} key={index}>
+                    <div className="column">
+                    {/*<Col {...row[name]} key={index}>*/}
                       <SchemaField
                                    name={name}
                                    required={this.isRequired(name)}
@@ -59,7 +60,7 @@ class GridField extends ObjectField {
                                    registry={this.props.registry}
                                    disabled={disabled}
                                    readonly={readonly}/>
-                    </Col>
+                    </div>
                   ))
                 }
               </div>

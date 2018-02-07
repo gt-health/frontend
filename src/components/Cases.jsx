@@ -42,42 +42,49 @@ export default class Cases extends React.Component {
       id: 'actions',
       Header: 'Actions',
       accessor: d => d.Id,
-      Cell: row => <div><Link className="table-link" to={`/cases/${row.value}/view`}><button type="button" className="button is-link is-small">View Case</button></Link>&nbsp;<Link className="table-link" to={`/cases/${row.value}/edit/patient`}><button type="button" className="button is-primary is-small">Edit Case</button></Link></div>
+      Cell: row => <div><Link className="table-link" to={`/cases/${row.value}/view`}><button type="button" className="button is-link is-small is-outlined">View Case</button></Link>&nbsp;<Link className="table-link" to={`/cases/${row.value}/edit/patient`}><button type="button" className="button is-danger is-outlined is-small">Edit Case</button></Link></div>
     }];
 
     return (
       <div className="cases">
-      <nav className="navbar navbar-default">
-        <div className="container-fluid">
-          <div className="navbar-header">
-            <a className="navbar-brand" href="#">
-              STI client
+        <nav className="navbar is-transparent" id="topnav">
+          <div className="navbar-brand">
+            <a className="navbar-item" href="https://bulma.io">
+              STI CLIENT
             </a>
+            <div className="navbar-burger burger" data-target="navbarExampleTransparentExample">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
           </div>
 
-          <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul className="nav navbar-nav navbar-right">
-              <li><Link to="/">Search</Link></li>
-              <li className="dropdown">
-                <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile <span className="caret"></span></a>
-                <ul className="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li role="separator" className="divider"></li>
-                  <li><a href="#">Separated link</a></li>
-                </ul>
-              </li>
-            </ul>
+          <div className="navbar-menu">
+
+            <div className="navbar-end">
+              <div className="navbar-item">
+                <div className="field is-grouped">
+                  <p className="control">
+                    <Link to={`/`}>
+                      <button
+                        type="button"
+                        className="button is-medium"
+                      >
+                        Back to Search
+                      </button>
+                    </Link>
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
+        </nav>
+        <div className="cases-table-wrapper">
+          <ReactTable
+            data={this.props.cases}
+            columns={columns}
+          />
         </div>
-      </nav>
-      <div className="cases-table-wrapper">
-        <ReactTable
-          data={this.props.cases}
-          columns={columns}
-        />
-      </div>
       </div>
     );
   }

@@ -39,41 +39,35 @@ export default class Case extends React.Component {
       )
     } else {
       return (
-        <div className="case">
+        <div className="case case-edit">
           <div className="sidebar">
-            <nav className="navbar navbar-default">
-              <div className="container-fluid">
-                <div className="navbar-header">
-                  <a className="navbar-brand" href="#">
-                    STI Client
-                  </a>
-                </div>
-              </div>
-            </nav>
+            <div class="sidebar-header">
+              <span>STI CLIENT</span>
+            </div>
             <ul className="nav nav-pills nav-stacked">
-              <li className="case-section-link">
-                <Link to={`${this.props.match.url}/provider`}>
-                  <span className="case-section-link-text">Provider</span>
-                  <span className="case-section-link-icon"><i className="fa fa-user-md" aria-hidden="true"></i></span>
-                </Link>
-              </li>
-              <li className="case-section-link">
-                <Link to={`${this.props.match.url}/facility`}>
-                  <span className="case-section-link-text">Facility</span>
-                  <span className="case-section-link-icon"><i className="fa fa-hospital-o" aria-hidden="true"></i></span>
-                </Link>
-              </li>
-              <li className="case-section-link">
-                <Link to={`${this.props.match.url}/patient`}>
-                  <span className="case-section-link-text">Patient</span>
-                  <span className="case-section-link-icon"><i className="fa fa-user" aria-hidden="true"></i></span>
-                </Link>
-              </li>
+              <Link to={`${this.props.match.url}/provider`}>
+                <li className="case-section-link">
+                    <span className="case-section-link-text">Provider</span>
+                    <span className="case-section-link-icon"><i className="fa fa-user-md" aria-hidden="true"></i></span>
+                </li>
+              </Link>
+              <Link to={`${this.props.match.url}/facility`}>
+                <li className="case-section-link">
+                    <span className="case-section-link-text">Facility</span>
+                    <span className="case-section-link-icon"><i className="fa fa-hospital-o" aria-hidden="true"></i></span>
+                </li>
+              </Link>
+              <Link to={`${this.props.match.url}/patient`}>
+                <li className="case-section-link">
+                    <span className="case-section-link-text">Patient</span>
+                    <span className="case-section-link-icon"><i className="fa fa-user" aria-hidden="true"></i></span>
+                </li>
+              </Link>
               <li className="case-siderbar-button">
                 <Link to={`/cases/${this.props.match.params.caseId}/view`}>
                   <button
                     type="button"
-                    className="button is-primary is-medium is-fullwidth"
+                    className="button is-info is-medium is-fullwidth is-outlined"
                   >
                     View Case
                   </button>
@@ -82,7 +76,7 @@ export default class Case extends React.Component {
               <li className="case-siderbar-button">
                 <button
                   type="button"
-                  className="button is-primary is-medium is-disabled is-fullwidth"
+                  className="button is-danger is-medium is-disabled is-fullwidth"
                   disabled={!this.props.case.dirty}
                   onClick={this.submitForm}
                 >
@@ -92,29 +86,35 @@ export default class Case extends React.Component {
             </ul>
           </div>
           <div className="main">
-            <nav className="navbar navbar-default">
-              <div className="container-fluid">
-                <div className="navbar-header">
-                  <a className="navbar-brand" href="#">
-                    <i className="fa fa-bars" aria-hidden="true"></i>
-                  </a>
-                </div>
+            <nav className="navbar is-transparent" id="topnav">
 
-                <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                  <ul className="nav navbar-nav navbar-right">
-                    <li><Link to="/">Search</Link></li>
-                    <li><Link to="/cases">Cases</Link></li>
-                    <li className="dropdown">
-                      <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile <span className="caret"></span></a>
-                      <ul className="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li role="separator" className="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                      </ul>
-                    </li>
-                  </ul>
+              <div className="navbar-menu">
+
+                <div className="navbar-end">
+                  <div className="navbar-item">
+                    <div className="field is-grouped">
+                      <p className="control">
+                        <Link to={`/`}>
+                          <button
+                            type="button"
+                            className="button is-medium"
+                          >
+                            Back to Search
+                          </button>
+                        </Link>
+                      </p>
+                      <p className="control">
+                        <Link to={`/cases`}>
+                          <button
+                            type="button"
+                            className="button is-medium"
+                          >
+                            Cases
+                          </button>
+                        </Link>
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </nav>

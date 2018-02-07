@@ -17,7 +17,7 @@ export default class StiApp extends Component {
 
   render() {
     return (
-      <section className="section">
+      <div id="sti">
         {/*<Route path="/" component={Navbar}/>*/}
         <Switch>
           <Route exact path="/" component={Search}/>
@@ -26,7 +26,7 @@ export default class StiApp extends Component {
           <Route path="/cases/:caseId/edit" component={CaseEdit}/>
           <Route path="/cases" component={Cases}/>
         </Switch>
-      </section>
+      </div>
     )
   }
 }

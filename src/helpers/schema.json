@@ -15,13 +15,16 @@
         "type": "object",
         "properties": {
   				"ID": {
+						"title": "",
   					"type": "object",
   					"properties": {
   						"value": {
-  							"type": "string"
+  							"type": "string",
+								"title": "Value"
   						},
   						"type": {
-  							"type": "string"
+  							"type": "string",
+								"title": "Type"
   						}
   					}
   				},
@@ -81,14 +84,17 @@
 			"type": "object",
 			"properties": {
 				"ID": {
+					"title": "Patient ID",
 					"type": "array",
 					"items": {
             "type": "object",
 						"properties": {
 							"value": {
+								"title": "Value",
 								"type": "string"
 							},
 							"type": {
+								"title": "Type",
 								"type": "string"
 							}
 						}
@@ -96,11 +102,14 @@
 				},
 				"Name": {
 					"type": "object",
+					"title": "Patient Name",
 					"properties": {
 						"given": {
+							"title": "First",
 							"type": "string"
 						},
 						"family": {
+							"title": "Last",
 							"type": "string"
 						}
 					}
@@ -108,16 +117,20 @@
 
 				"Parents_Guardians": {
 					"type": "array",
+					"title": "Parents/Guardians",
 					"items": {
 						"type": "object",
 						"properties": {
 							"Name": {
 								"type": "object",
+								"title": " ",
 								"properties": {
 									"given": {
+										"title": "First",
 										"type": "string"
 									},
 									"family": {
+										"title": "Last",
 										"type": "string"
 									}
 								}
@@ -134,10 +147,12 @@
 					}
 				},
 				"Street_Address": {
+					"title": "Street Address",
 					"type": "string"
 				},
 
 				"Birth_Date": {
+					"title": "Birth Date",
 					"type": "string"
 				},
 
@@ -146,6 +161,7 @@
 				},
 
 				"PatientClass": {
+					"title": "Patient Class",
 					"type": "string"
 				},
 
@@ -180,6 +196,7 @@
 				},
 
 				"Preferred_Language": {
+					"title": "Preferred Language",
           "type": "object",
 					"properties": {
 						"Code": {
@@ -202,6 +219,7 @@
 					"type": "boolean"
 				},
 				"Travel_History": {
+					"title": "Travel History",
 					"type": "array",
 					"items": {
 
@@ -209,6 +227,7 @@
 				},
 
 				"Insurance_Type": {
+					"title": "Insurance Type",
 					"type": "object",
 					"properties": {
 						"Code": {
@@ -224,6 +243,7 @@
 				},
 
 				"Immunization_History": {
+					"title": "Immunization History",
 					"type": "array",
 					"items": {
 						"type": "object",
@@ -242,14 +262,17 @@
 				},
 
 				"Visit_DateTime": {
+					"title": "Visit Date",
 					"type": "string"
 				},
 
 				"Admission_DateTime": {
+					"title": "Admission Date",
 					"type": "string"
 				},
 
 				"Date_of_Onset": {
+					"title": "Date of Onset",
 					"type": "string"
 				},
 
@@ -272,6 +295,7 @@
 				},
 
 				"Lab_Order_Code": {
+					"title": "Lab Order",
 					"type": "array",
 					"items": {
 						"type": "object",
@@ -286,6 +310,7 @@
 								"type": "string"
 							},
 							"Laboratory_Results": {
+								"title": "Laboratory Results",
 								"type": "array",
 								"items": {
 									"type": "object",
@@ -380,14 +405,17 @@
 				},
 
 				"Death_Date": {
+					"title": "Death Date",
 					"type": "string"
 				},
 
 				"Date_Discharged": {
+					"title": "Date Discharged",
 					"type": "string"
 				},
 
 				"Trigger_Code": {
+					"title": "Trigger Code",
 					"type": "array",
 					"items": {
 						"type": "object",
@@ -406,6 +434,7 @@
 				},
 
 				"Lab_Tests_Performed": {
+					"title": "Lab Tests Performed",
 					"type": "array",
 					"items": {
 						"type": "object",

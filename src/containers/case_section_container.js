@@ -8,7 +8,7 @@ function mapStateToProps(state, ownProps) {
   return {
     // user: state.user,
     // router: state.router
-    caseSection: state.case.raw[ownProps.section],
+    // caseSection: state.case.raw[ownProps.section],
     caseId: state.case.raw.Id,
     theCase: state.case.raw
   };
