@@ -10,7 +10,7 @@ pipeline{
                 script{
                     docker.withRegistry('https://gt-build.hdap.gatech.edu'){
                         //Build and push the database image
-                        def lmsImage = docker.build("frontend:1.0", "-f ./Dockerfile .")
+                        def lmsImage = docker.build("frontend:1.0", "-f ./Dockerfile-prod .")
                         lmsImage.push('latest')
                     }
                 }
