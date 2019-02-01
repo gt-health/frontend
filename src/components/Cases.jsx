@@ -42,7 +42,7 @@ export default class Cases extends React.Component {
       id: 'actions',
       Header: 'Actions',
       accessor: d => d.Id,
-      Cell: row => <div><Link className="table-link" to={`/cases/${row.value}/view`}><button type="button" className="button is-link is-small is-outlined">View Case</button></Link>&nbsp;<Link className="table-link" to={`/cases/${row.value}/edit/patient`}><button type="button" className="button is-danger is-outlined is-small">Edit Case</button></Link></div>
+      Cell: row => <div><Link className="table-link" to={`/frontend/cases/${row.value}/view`}><button type="button" className="button is-link is-small is-outlined">View Case</button></Link>&nbsp;<Link className="table-link" to={`/frontend/cases/${row.value}/edit/patient`}><button type="button" className="button is-danger is-outlined is-small">Edit Case</button></Link></div>
     }];
 
     return (
@@ -65,7 +65,7 @@ export default class Cases extends React.Component {
               <div className="navbar-item">
                 <div className="field is-grouped">
                   <p className="control">
-                    <Link to={`/`}>
+                    <Link to={`/frontend`}>
                       <button
                         type="button"
                         className="button is-medium"

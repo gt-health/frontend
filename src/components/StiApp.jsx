@@ -18,11 +18,11 @@ export default class StiApp extends Component {
   render() {
     return (
       <div id="sti">
-        {/*<Route path="/" component={Navbar}/>*/}
+        {/*<Route path="/frontend" component={Navbar}/>*/}
         <Switch>
           <Route exact path="/frontend" component={Search}/>
           <Route path="/frontend/cases/:caseId/view" component={CaseView}/>
-          {/*<Route path="/cases/:caseId/view" component={TestComp}/>*/}
+          {/*<Route path="/frontend/cases/:caseId/view" component={TestComp}/>*/}
           <Route path="/frontend/cases/:caseId/edit" component={CaseEdit}/>
           <Route path="/frontend/cases" component={Cases}/>
         </Switch>

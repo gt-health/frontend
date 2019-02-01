@@ -64,7 +64,7 @@ export default class Case extends React.Component {
                 </li>
               </Link>
               <li className="case-siderbar-button">
-                <Link to={`/cases/${this.props.match.params.caseId}/view`}>
+                <Link to={`/frontend/cases/${this.props.match.params.caseId}/view`}>
                   <button
                     type="button"
                     className="button is-info is-medium is-fullwidth is-outlined"
@@ -94,7 +94,7 @@ export default class Case extends React.Component {
                   <div className="navbar-item">
                     <div className="field is-grouped">
                       <p className="control">
-                        <Link to={`/`}>
+                        <Link to={`/frontend`}>
                           <button
                             type="button"
                             className="button is-medium"
@@ -104,7 +104,7 @@ export default class Case extends React.Component {
                         </Link>
                       </p>
                       <p className="control">
-                        <Link to={`/cases`}>
+                        <Link to={`/frontend/cases`}>
                           <button
                             type="button"
                             className="button is-medium"
