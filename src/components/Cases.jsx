@@ -13,9 +13,9 @@ export default class Cases extends React.Component {
     this.state = {};
   }
 
-  redirectToCaseView(d) {
-    let url = "/frontend/cases/" + d.Id + "/view?case:" + d;
-    this.props.history.push(url, { case: d });
+  redirectToCaseView(data) {
+    let url = "/frontend/cases/" + data.original.Id + "/view";
+    this.props.history.push(url, { case: data.original });
   }
 
   render() {
@@ -59,8 +59,8 @@ export default class Cases extends React.Component {
                 View Case
               </button>
             </Link> */}
-            <button onClick={() => this.redirectToCaseView(d)}>
-              View Case
+            <button onClick={() => this.redirectToCaseView(row)}>
+              View Cases
             </button>
           </div>
         )
