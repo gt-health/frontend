@@ -9,7 +9,7 @@ export function search(params) {
       .then((response) => {
         let cases = response.data;
         dispatch(searchFulfilledAction(cases, params));
-        history.push('/cases');
+        history.push('/frontend/cases');
       })
       .catch((error) => {
         console.log('error: ',error);
