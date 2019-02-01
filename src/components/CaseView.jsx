@@ -419,7 +419,6 @@ export default class Case extends React.Component {
                                   <td>{val.Unit.Code}</td>
                                   <td>
                                     {val.Value}
-                                    {val.Unit.Display}
                                   </td>
                                 </tr>
                               </tbody>
