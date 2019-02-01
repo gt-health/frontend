@@ -402,10 +402,10 @@ export default class Case extends React.Component {
                         <table className="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
                           <thead>
                             <tr>
-                              <th>Code</th>
+                              <th>System:Code</th>
                               <th>Date</th>
                               <th>Display</th>
-                              <th>System</th>
+                              <th>Unit</th>
                               <th>Value</th>
                             </tr>
                           </thead>
@@ -413,10 +413,10 @@ export default class Case extends React.Component {
                             return (
                               <tbody>
                                 <tr>
-                                  <td>{val.Code}</td>
+                                  <td>{val.System}:{val.Code}</td>
                                   <td>{val.Date}</td>
                                   <td>{val.Display}</td>
-                                  <td>{val.System}</td>
+                                  <td>{val.Unit.Code}</td>
                                   <td>
                                     {val.Value}
                                     {val.Unit.Display}
