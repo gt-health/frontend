@@ -327,9 +327,30 @@ export default class Case extends React.Component {
 
               {/* DIAGNOSIS SECTION */}
               <h3 className="title is-3">Diagnosis</h3>
-              <div className="notification is-info">
-                {this.state.case.Patient.Diagnosis.Display}
-              </div>
+              {this.state.case.Patient.Diagnosis.Display}
+              <table className="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+                <thead>
+                  <tr>
+                    <th>Code</th>
+                    <th>System</th>
+                    <th>Display</th>
+                    <th>Date</th>
+                  </tr>
+                </thead>
+                {this.state.case.Patient["Diagnosis"].map(function(val, i) {
+                  return (
+                    <tbody>
+                      <tr>
+                        <td>{val.Code}</td>
+                        <td>{val.System}</td>
+                        <td>{val.Display}</td>
+                        <td>{val.Date}</td>
+                      </tr>
+                    </tbody>
+                  );
+                })}
+              </table>
+
               <div className="columns">
                 <div className="column">
                   <h4 className="title is-4">Medications</h4>
