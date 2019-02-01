@@ -1,28 +1,27 @@
 export function searchReducer(state = {}, action) {
-  switch(action.type) {
-    case 'SEARCH_REQUESTED': {
+  switch (action.type) {
+    case "SEARCH_REQUESTED": {
       return {
         ...state,
         inProgress: true,
-        error: '',
-        success: ''
+        error: "",
+        success: ""
       };
     }
-    case 'SEARCH_REJECTED': {
+    case "SEARCH_REJECTED": {
       return {
         ...state,
         inProgress: false,
-        error: 'Problem searching cases.',
-        success: ''
+        error: "Problem searching cases.",
+        success: ""
       };
-
     }
-    case 'SEARCH_FULFILLED': {
+    case "SEARCH_FULFILLED": {
       return {
         ...state,
         inProgress: false,
-        error: '',
-        success: 'Successfully retrieved cases.',
+        error: "",
+        success: "Successfully retrieved cases.",
         params: action.payload.params,
         cases: action.payload.cases
       };
