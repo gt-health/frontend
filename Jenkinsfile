@@ -10,8 +10,8 @@ pipeline{
                 script{
                     docker.withRegistry('https://gt-build.hdap.gatech.edu'){
                         //Build and push the database image
-                        def lmsImage = docker.build("frontend:1.0", "-f ./Dockerfile-prod .")
-                        lmsImage.push('latest')
+                        def lmsImage = docker.build("frontend:${env.BUILD_NUMBER}", "-f ./Dockerfile-prod .")
+                        lmsImage.push("${env.BUILD_NUMBER}")
                     }
                 }
             }
@@ -21,7 +21,7 @@ pipeline{
         stage('Notify'){
             steps{
                 script{
-                    rancher confirm: true, credentialId: 'gt-rancher-server', endpoint: 'https://gt-rancher.hdap.gatech.edu/v2-beta', environmentId: '1a7', environments: '', image: 'gt-build.hdap.gatech.edu/frontend:latest', ports: '80', service: 'MortalityReporting/frontend', timeout: 60
+                    rancher confirm: true, credentialId: 'gt-rancher-server', endpoint: 'https://gt-rancher.hdap.gatech.edu/v2-beta', environmentId: '1a7', environments: '', image: "gt-build.hdap.gatech.edu/frontend:${env.BUILD_NUMBER}", ports: '80', service: 'GPHD/frontend', timeout: 60
                 }
             }
         }
