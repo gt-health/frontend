@@ -18,7 +18,7 @@ export default class StiApp extends Component {
   render() {
     return (
       <div id="sti">
-        <Route exact path="/" component={Search}/>
+        <Route exact path="/frontend" component={Search}/>
         <Switch>
           <Route path="/frontend/cases/:caseId/view" component={CaseView}/>
           {/* <Route path="/frontend/cases/:caseId/view" component={TestComp}/> */}
